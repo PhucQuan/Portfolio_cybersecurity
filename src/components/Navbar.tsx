@@ -4,10 +4,10 @@ import { Menu, X, Terminal } from "lucide-react";
 import { Button } from "./ui/button";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#case-studies", label: "Case Studies" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "Giới thiệu" },
+  { href: "#projects", label: "Dự án" },
+  { href: "#homework", label: "Bài Tập" },
+  { href: "#contact", label: "Liên hệ" },
 ];
 
 export const Navbar = () => {
@@ -23,8 +23,8 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a 
-            href="#" 
+          <a
+            href="#"
             className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
           >
             <Terminal className="w-6 h-6 text-primary" />
@@ -44,7 +44,7 @@ export const Navbar = () => {
               </a>
             ))}
             <Button variant="cyber" size="sm">
-              Download CV
+              Tải CV
             </Button>
           </div>
 
@@ -81,7 +81,7 @@ export const Navbar = () => {
                 </a>
               ))}
               <Button variant="cyber" className="w-full mt-2">
-                Download CV
+                Tải CV
               </Button>
             </div>
           </motion.div>

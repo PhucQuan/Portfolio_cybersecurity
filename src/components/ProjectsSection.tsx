@@ -1,78 +1,86 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Github, ExternalLink, Star, GitFork, Code } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, Folder, Terminal } from "lucide-react";
 import { Button } from "./ui/button";
 
 const projects = [
   {
     id: 1,
-    name: "VulnScanner",
-    description: "Automated vulnerability scanner for web applications with custom detection rules and reporting.",
-    tech: ["Python", "Burp API", "SQLite"],
-    stars: 245,
-    forks: 52,
+    name: "Phishing Detection System",
+    description: "Hệ thống nhận diện email phishing và số điện thoại lừa đảo sử dụng BERT model. Đạt độ chính xác 94% trên tập test với 10,000+ mẫu.",
+    tech: ["Python", "BERT", "TensorFlow", "Flask"],
+    stars: 28,
+    forks: 7,
     github: "#",
     demo: "#",
-    tags: ["Tool", "Automation"],
+    tags: ["AI/ML", "NLP", "Security"],
+    status: "Hoàn Thành"
   },
   {
     id: 2,
-    name: "JWT-Cracker",
-    description: "High-performance JWT secret key brute-forcer with wordlist support and algorithm detection.",
-    tech: ["Rust", "OpenSSL"],
-    stars: 189,
-    forks: 34,
+    name: "AI Code Vulnerability Auditor",
+    description: "Công cụ SAST sử dụng Machine Learning để phân tích mã nguồn và phát hiện lỗ hổng bảo mật (Injection, XSS, Logic Flaw) dựa trên OWASP Top 10.",
+    tech: ["Python", "NLP", "Scikit-learn", "AST"],
+    stars: 15,
+    forks: 4,
     github: "#",
-    tags: ["PoC", "JWT"],
+    tags: ["AI/ML", "SAST", "OWASP"],
+    status: "Đang Phát Triển"
   },
   {
     id: 3,
-    name: "CloudEnum",
-    description: "Multi-cloud asset enumeration tool supporting AWS, Azure, and GCP resource discovery.",
-    tech: ["Go", "AWS SDK", "Azure SDK"],
-    stars: 312,
-    forks: 78,
+    name: "Serverless Security Scanner",
+    description: "Quét lỗi cấu hình AWS Serverless (Lambda, S3, DynamoDB). Phát hiện IAM overprivileged, public buckets, và sensitive environment variables.",
+    tech: ["Python", "Boto3", "AWS SDK"],
+    stars: 12,
+    forks: 3,
     github: "#",
-    tags: ["Cloud", "Recon"],
+    tags: ["Cloud", "AWS", "DevSecOps"],
+    status: "Đang Phát Triển"
   },
   {
     id: 4,
-    name: "SSRF-Detector",
-    description: "Browser extension and proxy plugin for detecting and exploiting SSRF vulnerabilities.",
-    tech: ["JavaScript", "Python", "Burp API"],
-    stars: 156,
-    forks: 29,
+    name: "Vulnerable Microservices Lab",
+    description: "Môi trường microservices với Docker/K8s chứa các lỗ hổng phức tạp (SSRF, Deserialization, API Gateway flaws) để thực hành pentesting.",
+    tech: ["Docker", "Kubernetes", "Go", "Node.js"],
+    stars: 20,
+    forks: 8,
     github: "#",
-    tags: ["Extension", "SSRF"],
+    tags: ["DevSecOps", "Pentest", "CTF"],
+    status: "Đang Phát Triển"
   },
   {
     id: 5,
-    name: "APIFuzzer",
-    description: "Intelligent API fuzzing framework with OpenAPI spec parsing and mutation-based testing.",
-    tech: ["Python", "FastAPI", "Docker"],
-    stars: 203,
-    forks: 45,
+    name: "VulnScanner-Lite",
+    description: "Công cụ quét lỗ hổng cơ bản cho website, phát hiện SQL Injection và XSS.",
+    tech: ["Python", "Requests", "BeautifulSoup"],
+    stars: 15,
+    forks: 5,
     github: "#",
-    tags: ["Fuzzing", "API"],
+    tags: ["Scanner", "OWASP"],
+    status: "Đang Phát Triển"
   },
   {
     id: 6,
-    name: "SubdomainHunter",
-    description: "Fast subdomain enumeration tool with recursive brute-forcing and DNS resolution.",
-    tech: ["Go", "DNS Libraries"],
-    stars: 178,
-    forks: 41,
+    name: "PortScanner",
+    description: "Công cụ quét cổng mạng nhanh với phát hiện dịch vụ và báo cáo chi tiết.",
+    tech: ["Python", "Socket", "Threading"],
+    stars: 9,
+    forks: 3,
     github: "#",
-    tags: ["Recon", "DNS"],
+    tags: ["Network", "Recon"],
+    status: "Đang Phát Triển"
   },
 ];
+
+
 
 export const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-24 relative bg-muted/20">
+    <section id="projects" className="py-24 relative bg-cyber-navy/30">
       <div className="container mx-auto px-4 lg:px-8">
         <div ref={ref}>
           {/* Header */}
@@ -82,17 +90,16 @@ export const ProjectsSection = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-secondary/30 bg-secondary/5 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-              <span className="text-xs font-mono text-secondary uppercase tracking-wider">Projects & Tools</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-cyber-neon/30 bg-cyber-neon/5 mb-6">
+              <span className="w-1.5 h-1.5 rounded-none bg-cyber-neon animate-pulse" />
+              <span className="text-xs font-mono text-cyber-neon uppercase tracking-wider">./hoat_dong</span>
             </div>
-            
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Open Source
-              <span className="gradient-text-purple"> Security Tools</span>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-mono">
+              Featured <span className="text-cyber-purple">Projects</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Custom-built tools and utilities for security research, penetration testing, and vulnerability discovery.
+            <p className="text-muted-foreground max-w-2xl mx-auto font-mono text-sm">
+              &gt; Security research tools and utilities for vulnerability discovery.
             </p>
           </motion.div>
 
@@ -104,30 +111,35 @@ export const ProjectsSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
-                className="group rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 hover:border-secondary/30 transition-all hover:shadow-[0_0_30px_hsl(var(--secondary)/0.1)]"
+                className="group relative rounded-lg border border-cyber-gray/20 bg-gradient-to-br from-cyber-surface/50 to-cyber-navy/30 backdrop-blur-md p-6 hover:border-cyber-neon/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,157,0.15)] hover:scale-[1.02]"
               >
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-cyber-neon opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-cyber-neon opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-cyber-neon opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-cyber-neon opacity-0 group-hover:opacity-100 transition-opacity" />
+
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
-                  <div className="p-2 rounded-lg bg-secondary/10 border border-secondary/20">
-                    <Code className="w-5 h-5 text-secondary" />
+                  <div className="p-2 rounded-none bg-cyber-navy border border-cyber-neon/20">
+                    <Folder className="w-5 h-5 text-cyber-neon" />
                   </div>
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground font-mono">
                     <span className="flex items-center gap-1">
-                      <Star className="w-3.5 h-3.5" />
+                      <Star className="w-3.5 h-3.5 text-yellow-500" />
                       {project.stars}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <GitFork className="w-3.5 h-3.5" />
-                      {project.forks}
+                    <span className="px-1.5 py-0.5 rounded-none bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/20">
+                      {project.status}
                     </span>
                   </div>
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-secondary transition-colors">
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-cyber-neon transition-colors font-mono">
                   {project.name}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed font-mono">
                   {project.description}
                 </p>
 
@@ -136,37 +148,48 @@ export const ProjectsSection = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded text-xs bg-secondary/5 text-secondary border border-secondary/20"
+                      className="px-2 py-0.5 rounded-none text-xs bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/20 font-mono"
                     >
-                      {tag}
+                      #{tag}
                     </span>
                   ))}
                 </div>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-6 border-t border-cyber-gray/10 pt-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 rounded text-xs bg-muted text-muted-foreground font-mono"
+                      className="flex items-center gap-1 text-xs text-muted-foreground font-mono"
                     >
+                      <Terminal className="w-3 h-3" />
                       {tech}
                     </span>
                   ))}
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-2 pt-4 border-t border-border">
-                  <Button variant="cyber-ghost" size="sm" asChild className="flex-1">
+                <div className="flex items-center gap-2 pt-4 border-t border-cyber-gray/20">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    asChild
+                    className="flex-1 rounded-none hover:bg-cyber-neon/10 hover:text-cyber-neon font-mono"
+                  >
                     <a href={project.github}>
-                      <Github className="w-4 h-4" />
-                      Source
+                      <Github className="w-4 h-4 mr-2" />
+                      Mã Nguồn
                     </a>
                   </Button>
                   {project.demo && (
-                    <Button variant="cyber-purple" size="sm" asChild className="flex-1">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      asChild
+                      className="flex-1 rounded-none hover:bg-cyber-purple/10 hover:text-cyber-purple font-mono"
+                    >
                       <a href={project.demo}>
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-4 h-4 mr-2" />
                         Demo
                       </a>
                     </Button>
@@ -183,10 +206,15 @@ export const ProjectsSection = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-center mt-12"
           >
-            <Button variant="cyber-outline" size="lg" asChild>
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="rounded-none border-cyber-neon text-cyber-neon hover:bg-cyber-neon hover:text-cyber-navy font-mono"
+            >
               <a href="#">
-                <Github className="w-5 h-5" />
-                View All on GitHub
+                <Github className="w-5 h-5 mr-2" />
+                Truy Cập Tất Cả Kho Lưu Trữ
               </a>
             </Button>
           </motion.div>
